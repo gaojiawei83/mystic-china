@@ -108,42 +108,35 @@
       <div class="post-content">
 
         <!-- ============================================
-             从这里开始写文章内容！
-             用 <p> 标签写段落
-             用 <h2> 写大标题
-             用 <h3> 写小标题
-             用 <ul><li> 写列表
-             用 <blockquote> 写引用
-             用 <strong> 加粗重点
+             文章正文开始！
+             新增功能: 翻译 + 解释
+             
+             【翻译用法】
+             在每段英文后面加上:
+             <div class="zh-text">这里是中文翻译</div>
+             用户点「中文」按钮就会显示
+             
+             【解释用法 - 方式1: 带弹窗的关键词】
+             <span class="explain-term">英文关键词
+               <span class="explain-pop"><span class="pop-zh">中文原文</span><span class="pop-en">解释给外国人看</span></span>
+             </span>
+             用户悬停/点击就会弹出解释
+             
+             【解释用法 - 方式2: 嵌入式解释】
+             <div class="explain-inline"><span class="ei-zh">中文原文</span> — <span class="ei-en">解释给外国人看</span></div>
+             放在需要解释的段落后面，用户点「解释」按钮显示
              ============================================ -->
 
-        <p>YOUR INTRODUCTION PARAGRAPH. Introduce the topic and hook the reader. Tell them what they will learn in this article.</p>
+        <p>YOUR INTRODUCTION PARAGRAPH. Introduce the topic and hook the reader.</p>
+        <div class="zh-text">这里是中文翻译，用户点「中文」按钮显示。介绍主题并抓住读者注意力。</div>
 
-        <h2>Section Heading 1</h2>
-        <p>Your content goes here. Write in-depth, valuable content. Google loves long, informative articles. Aim for at least 800-1500 words per article for good SEO.</p>
-        <p>Break your content into multiple paragraphs. Each paragraph should focus on one idea. This makes reading easier and helps with SEO.</p>
+        <h2>Section Heading</h2>
+        <p>The <span class="explain-term">Tao (道)<span class="explain-pop"><span class="pop-zh">道</span><span class="pop-en">The ultimate principle of the universe; literally means "the Way" or "the Path." Cannot be fully described in words.</span></span></span> is the foundation of Chinese philosophy.</p>
+        <div class="zh-text"><span class="explain-term">道<span class="explain-pop"><span class="pop-zh">道</span><span class="pop-en">宇宙的终极法则，字面意思是"道路"。无法用语言完全描述。</span></span></span>是中国哲学的基础。</div>
+        <div class="explain-inline"><span class="ei-zh">道 (Tao)</span> — <span class="ei-en">The ultimate principle of the universe; literally means "the Way" or "the Path." It is the source of all things and cannot be fully captured in words.</span></div>
 
-        <h2>Section Heading 2</h2>
-        <p>More content here. Use bullet points to make information scannable.</p>
-        <ul>
-          <li><strong>Key point 1:</strong> Explain this point in detail</li>
-          <li><strong>Key point 2:</strong> Explain this point in detail</li>
-          <li><strong>Key point 3:</strong> Explain this point in detail</li>
-        </ul>
-
-        <div class="key-point">
-          <strong>💡 Key Takeaway:</strong> Summarize the most important insight from this section in one or two sentences.
-        </div>
-
-        <h3>Sub-topic</h3>
-        <p>Deeper dive into a specific aspect. More detailed explanation goes here.</p>
-
-        <blockquote>
-          "A relevant quote from a Chinese classic or expert to add authority and depth to your article."
-        </blockquote>
-
-        <h2>Conclusion</h2>
-        <p>Summarize the main points of the article. Give the reader a clear takeaway or next step. Encourage them to explore related articles.</p>
+        <p>More content here.</p>
+        <div class="zh-text">更多内容在这里。</div>
 
       </div>
 
@@ -202,5 +195,6 @@
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="../js/main.js"></script>
+  <script src="../js/lang.js"></script>
 </body>
 </html>
