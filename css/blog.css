@@ -6,7 +6,7 @@
 .blog-page { padding-top: 100px; min-height: 100vh; }
 .blog-hero {
   text-align: center; padding: 72px 24px 48px;
-  background: linear-gradient(180deg, rgba(155,123,44,0.04), transparent);
+  background: linear-gradient(180deg, rgba(200,164,92,0.04), transparent);
   border-bottom: 1px solid var(--glass-border); position: relative;
 }
 .blog-hero::after {
@@ -62,7 +62,7 @@
 .post-meta { display: flex; justify-content: center; gap: 28px; color: var(--text-muted); font-size: 0.9rem; }
 
 .post-featured-image {
-  height: 280px; background: linear-gradient(135deg, rgba(155,123,44,0.06), rgba(155,123,44,0.02));
+  height: 280px; background: linear-gradient(135deg, rgba(200,164,92,0.06), rgba(200,164,92,0.02));
   border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
   font-size: 5rem; margin-bottom: 44px;
   border: 1px solid var(--glass-border);
@@ -83,11 +83,11 @@
 .post-content strong { color: var(--text-primary); }
 .post-content blockquote {
   border-left: 3px solid var(--gold); padding: 18px 28px; margin: 28px 0;
-  background: rgba(155,123,44,0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgba(200,164,92,0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0;
   color: var(--text-secondary); font-style: italic; font-size: 1.05rem;
 }
 .post-content .key-point {
-  background: linear-gradient(135deg, rgba(155,123,44,0.08), rgba(155,123,44,0.03));
+  background: linear-gradient(135deg, rgba(200,164,92,0.08), rgba(200,164,92,0.03));
   border: 1px solid var(--glass-border); border-radius: var(--radius-md);
   padding: 22px 28px; margin: 28px 0;
 }
@@ -126,7 +126,7 @@
 
 /* ---------- Newsletter ---------- */
 .newsletter {
-  background: linear-gradient(135deg, rgba(155,123,44,0.04), rgba(155,123,44,0.02), rgba(155,123,44,0.04));
+  background: linear-gradient(135deg, rgba(200,164,92,0.04), rgba(200,164,92,0.02), rgba(200,164,92,0.04));
   border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
   padding: 64px 24px; text-align: center; margin: 64px 0;
 }
@@ -135,7 +135,7 @@
 .newsletter-form { display: flex; max-width: 450px; margin: 0 auto; gap: 10px; }
 .newsletter-form input {
   flex: 1; padding: 13px 18px;
-  background: rgba(255,252,245,0.6); border: 1px solid var(--glass-border);
+  background: rgba(18,18,42,0.6); border: 1px solid var(--glass-border);
   border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.95rem;
 }
 .newsletter-form input:focus { outline: none; border-color: var(--gold); }
@@ -173,7 +173,7 @@
   display: flex; align-items: center; justify-content: center;
   transition: all var(--transition);
 }
-.share-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(155,123,44,0.1); }
+.share-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,164,92,0.1); }
 
 /* ---------- Translation / Explanation Toolbar ---------- */
 .lang-toolbar {
@@ -189,7 +189,7 @@
   transition: all var(--transition); display: inline-flex; align-items: center; gap: 4px;
 }
 .lang-toolbar button:hover { border-color: var(--gold); color: var(--gold); }
-.lang-toolbar button.active { background: rgba(155,123,44,0.18); border-color: var(--gold); color: var(--gold-light); }
+.lang-toolbar button.active { background: rgba(200,164,92,0.18); border-color: var(--gold); color: var(--gold-light); }
 .lang-toolbar .toolbar-hint {
   font-size: 0.7rem; color: var(--text-muted); display: block; text-align: right;
   margin-top: 4px; padding-right: 24px;
@@ -214,16 +214,16 @@
 .explain-term::after {
   content: ' ⓘ'; font-size: 0.7rem; vertical-align: super; color: var(--gold-dim);
 }
-.explain-term:hover, .explain-term.active { background: rgba(155,123,44,0.12); border-color: var(--gold-light); }
+.explain-term:hover, .explain-term.active { background: rgba(200,164,92,0.12); border-color: var(--gold-light); }
 
 /* Popup card */
 .explain-pop {
   display: none; position: fixed; z-index: 2000;
-  background: #faf6ee; border: 2px solid var(--gold);
+  background: #1a1a2e; border: 2px solid var(--gold);
   border-radius: var(--radius-md); padding: 16px 20px;
   color: var(--text-primary); font-size: 0.88rem; line-height: 1.55;
   max-width: 360px; min-width: 220px;
-  box-shadow: 0 8px 40px rgba(44,36,22,0.25), 0 0 20px rgba(155,123,44,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.8), 0 0 20px rgba(200,164,92,0.15);
   white-space: normal; text-align: left;
 }
 .explain-pop .pop-zh {
@@ -246,7 +246,7 @@
 /* Inline explanation block (visible when 解释 mode is ON) */
 .explain-inline {
   display: none; margin: 2px 0 14px 0; padding: 12px 18px;
-  background: rgba(155,123,44,0.06); border-left: 3px solid var(--gold-dim);
+  background: rgba(200,164,92,0.06); border-left: 3px solid var(--gold-dim);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55;
 }
