@@ -13,15 +13,15 @@
   --bg-card-hover: rgba(255, 252, 245, 0.95);
 
   /* 墨色文字 */
-  --text-primary: #0d0803;
-  --text-secondary: #2a2012;
-  --text-muted: #4a3e2c;
+  --text-primary: #1a1208;
+  --text-secondary: #3d3522;
+  --text-muted: #6b6050;
 
   /* 金色点缀 */
-  --gold: #7a5e1a;
-  --gold-light: #9b7b2c;
-  --gold-dim: #5a3e0a;
-  --gold-glow: rgba(122, 94, 26, 0.18);
+  --gold: #9b7b2c;
+  --gold-light: #b89434;
+  --gold-dim: #6b5418;
+  --gold-glow: rgba(155, 123, 44, 0.18);
 
   /* 印章红 */
   --red: #b93a3a;
@@ -30,8 +30,8 @@
   /* 边框与玻璃效果 */
   --border: rgba(155, 123, 44, 0.18);
   --border-glow: rgba(155, 123, 44, 0.4);
-  --glass-bg: rgba(255, 252, 245, 0.92);
-  --glass-border: rgba(122, 94, 26, 0.2);
+  --glass-bg: rgba(255, 252, 245, 0.75);
+  --glass-border: rgba(155, 123, 44, 0.15);
 
   /* 阴影 - 水墨晕染感 */
   --shadow-sm: 0 2px 16px rgba(44, 36, 22, 0.06);
