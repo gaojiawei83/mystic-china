@@ -1,0 +1,6 @@
+# Mystic China robots.txt
+User-agent: *
+Allow: /
+Disallow: /blog/template.html
+
+Sitemap: https://mystic-china.com/sitemap.xml
