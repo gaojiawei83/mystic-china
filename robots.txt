@@ -1,4 +1,4 @@
-# Mystic China robots.txt
+# I Ching Wisdom robots.txt
 User-agent: *
 Allow: /
 Disallow: /blog/template.html

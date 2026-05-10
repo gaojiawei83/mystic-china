@@ -1,5 +1,5 @@
 /* ============================================
-   Mystic China - Premium JavaScript
+   I Ching Wisdom - Premium JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

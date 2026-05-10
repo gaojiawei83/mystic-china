@@ -1,5 +1,5 @@
 /* ============================================
-   Mystic China - Translation & Explanation
+   I Ching Wisdom - Translation & Explanation
    ============================================ */
 (function() {
   'use strict';
