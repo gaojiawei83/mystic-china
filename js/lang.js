@@ -1,11 +1,14 @@
 /* ============================================
    I Ching Wisdom - Translation & Explanation
+   Click popups + mobile support + explain mode
    ============================================ */
 (function() {
   'use strict';
 
   var zhOn = false;
   var explainOn = false;
+  var activePop = null;
+  var backdrop = null;
 
   function getPrefs() {
     try {
@@ -40,18 +43,72 @@
 
   function toggleExplain() {
     explainOn = !explainOn;
+    if (explainOn) closeAllPopups();
     savePrefs();
     applyState();
+  }
+
+  function closeAllPopups() {
+    if (activePop) activePop.style.display = 'none';
+    activePop = null;
+    if (backdrop) backdrop.style.display = 'none';
+    document.querySelectorAll('.explain-term.active').forEach(function(t) { t.classList.remove('active'); });
+  }
+
+  function createBackdrop() {
+    if (backdrop) return;
+    backdrop = document.createElement('div');
+    backdrop.className = 'pop-backdrop';
+    backdrop.addEventListener('click', closeAllPopups);
+    document.body.appendChild(backdrop);
+  }
+
+  function positionPopup(pop, term) {
+    var rect = term.getBoundingClientRect();
+    var pw = pop.offsetWidth || 320;
+    var ph = pop.offsetHeight || 100;
+    var left = rect.left + rect.width / 2 - pw / 2;
+    var top = rect.bottom + 8;
+    if (left < 10) left = 10;
+    if (left + pw > window.innerWidth - 10) left = window.innerWidth - pw - 10;
+    if (top + ph > window.innerHeight - 20) top = rect.top - ph - 8;
+    if (top < 10) top = 10;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function showPopup(term) {
+    var pop = term.querySelector('.explain-pop');
+    if (!pop) return;
+    if (activePop === pop) { closeAllPopups(); return; }
+    closeAllPopups();
+    createBackdrop();
+    backdrop.style.display = 'block';
+    pop.style.display = 'block';
+    positionPopup(pop, term);
+    activePop = pop;
+    term.classList.add('active');
+  }
+
+  function addCloseButton(pop) {
+    if (pop.querySelector('.pop-close')) return;
+    var btn = document.createElement('button');
+    btn.className = 'pop-close';
+    btn.innerHTML = '&times;';
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeAllPopups();
+    });
+    pop.appendChild(btn);
   }
 
   function insertToolbar() {
     var post = document.querySelector('.post-container');
     if (!post) return;
-    var existing = document.querySelector('.lang-toolbar');
-    if (existing) return;
+    if (document.querySelector('.lang-toolbar')) return;
     var toolbar = document.createElement('div');
     toolbar.className = 'lang-toolbar';
-    toolbar.innerHTML = '<button id="btn-zh" class="' + (zhOn ? 'active' : '') + '">\u4e2d\u6587</button><button id="btn-explain" class="' + (explainOn ? 'active' : '') + '">\u89e3\u91ca</button>';
+    toolbar.innerHTML = '<button id="btn-zh" class="' + (zhOn ? 'active' : '') + '"><span>中/EN</span> Show Chinese</button><button id="btn-explain" class="' + (explainOn ? 'active' : '') + '"><span>i</span> Explain Terms</button>';
     var header = post.querySelector('.post-header');
     if (header) {
       header.parentNode.insertBefore(toolbar, header.nextSibling);
@@ -62,24 +119,16 @@
     document.getElementById('btn-explain').addEventListener('click', toggleExplain);
   }
 
-  function initExplainPopups() {
+  function initTerms() {
     var terms = document.querySelectorAll('.explain-term');
     terms.forEach(function(term) {
-      term.addEventListener('mouseenter', function() {
-        if (explainOn) return;
-        var pop = term.querySelector('.explain-pop');
-        if (pop) pop.classList.add('visible');
-      });
-      term.addEventListener('mouseleave', function() {
-        var pop = term.querySelector('.explain-pop');
-        if (pop) pop.classList.remove('visible');
-      });
+      var pop = term.querySelector('.explain-pop');
+      if (pop) addCloseButton(pop);
       term.addEventListener('click', function(e) {
-        if (!explainOn) {
-          e.preventDefault();
-          var pop = term.querySelector('.explain-pop');
-          if (pop) pop.classList.toggle('visible');
-        }
+        if (explainOn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        showPopup(term);
       });
     });
   }
@@ -88,6 +137,15 @@
   document.addEventListener('DOMContentLoaded', function() {
     insertToolbar();
     applyState();
-    initExplainPopups();
+    initTerms();
+  });
+  window.addEventListener('resize', function() {
+    if (activePop) {
+      var term = document.querySelector('.explain-term.active');
+      if (term) positionPopup(activePop, term);
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAllPopups();
   });
 })();
