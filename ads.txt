@@ -1,3 +1,1 @@
-# Google AdSense ads.txt for ichingzhen.com
-# Replace PUB_ID_HERE with your actual AdSense publisher ID (ca-pub-XXXXXXXX) after approval
-# google.com, PUB_ID_HERE, DIRECT, f08c47fec0942fa0
+google.com, pub-6088657581972288, DIRECT, f08c47fec0942fa0
