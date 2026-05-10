@@ -79,10 +79,16 @@ img { max-width: 100%; }
 .nav-logo .logo-icon { font-size: 2rem; -webkit-text-fill-color: initial; }
 .nav-links { display: flex; list-style: none; gap: 36px; }
 .nav-links a {
-  color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
+  color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;
   text-transform: uppercase; letter-spacing: 1.5px;
   position: relative; padding: 6px 0;
   transition: color var(--transition);
+  display: flex; flex-direction: column; align-items: center; line-height: 1.2;
+}
+.nav-links a .nav-zh {
+  font-size: 0.62rem; text-transform: none; letter-spacing: 0;
+  color: var(--text-muted); font-weight: 400;
+  font-family: 'STKaiti','KaiTi','Microsoft YaHei',serif;
 }
 .nav-links a::after {
   content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
@@ -202,6 +208,11 @@ img { max-width: 100%; }
 .iching-card:hover::before { opacity: 1; }
 .iching-card h3 { font-size: 1.25rem; color: var(--gold); margin-bottom: 14px; }
 .iching-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+.iching-card .card-link {
+  display: inline-block; margin-top: 16px; font-size: 0.82rem; color: var(--gold);
+  font-weight: 600; transition: all var(--transition);
+}
+.iching-card .card-link:hover { color: var(--gold-light); padding-left: 4px; }
 
 /* ---------- Ba Gua Section ---------- */
 #bagua { background: var(--bg-deep); }
@@ -238,6 +249,11 @@ img { max-width: 100%; }
 .fengshui-card:hover { transform: translateY(-10px); border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
 .fengshui-card h3 { font-size: 1.2rem; color: var(--gold); margin-bottom: 14px; }
 .fengshui-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+.fengshui-card .card-link {
+  display: inline-block; margin-top: 16px; font-size: 0.82rem; color: var(--gold);
+  font-weight: 600; transition: all var(--transition);
+}
+.fengshui-card .card-link:hover { color: var(--gold-light); padding-left: 4px; }
 
 /* ---------- Five Elements ---------- */
 #elements { background: var(--bg-deep); }
@@ -326,6 +342,7 @@ img { max-width: 100%; }
     transition: all var(--transition);
     border-bottom: 1px solid var(--glass-border);
   }
+  .nav-links a { gap: 2px; }
   .nav-links.show { transform: translateY(0); opacity: 1; visibility: visible; }
   .element-circle { width: 85px; height: 85px; font-size: 0.85rem; }
   .element-circle .element-emoji { font-size: 1.5rem; }

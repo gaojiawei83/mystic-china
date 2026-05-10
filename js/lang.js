@@ -108,7 +108,7 @@
     if (document.querySelector('.lang-toolbar')) return;
     var toolbar = document.createElement('div');
     toolbar.className = 'lang-toolbar';
-    toolbar.innerHTML = '<button id="btn-zh" class="' + (zhOn ? 'active' : '') + '"><span>中/EN</span> Show Chinese</button><button id="btn-explain" class="' + (explainOn ? 'active' : '') + '"><span>i</span> Explain Terms</button>';
+    toolbar.innerHTML = '<button id="btn-zh" class="' + (zhOn ? 'active' : '') + '">Translation</button><button id="btn-explain" class="' + (explainOn ? 'active' : '') + '">Term Notes</button>';
     var header = post.querySelector('.post-header');
     if (header) {
       header.parentNode.insertBefore(toolbar, header.nextSibling);
