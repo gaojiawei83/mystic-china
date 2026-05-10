@@ -140,8 +140,6 @@ img { max-width: 100%; }
 }
 @keyframes starPulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
 .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 24px; }
-.hero-bagua { font-size: 6rem; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 30px var(--gold-glow)); animation: float 4s ease-in-out infinite; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
 .hero h1 {
   font-size: 4.5rem; font-weight: 800; margin-bottom: 12px; letter-spacing: 3px;
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dim) 100%);
@@ -176,8 +174,7 @@ img { max-width: 100%; }
 
 /* ---------- Section Common ---------- */
 .section { padding: 110px 24px; max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 72px; }
-.section-header .section-icon { font-size: 3.5rem; display: block; margin-bottom: 16px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+.section-header { text-align: center; margin-bottom: 64px; }
 .section-header h2 {
   font-size: 2.6rem; margin-bottom: 14px; letter-spacing: 1px;
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
@@ -203,7 +200,6 @@ img { max-width: 100%; }
 }
 .iching-card:hover { transform: translateY(-10px); border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
 .iching-card:hover::before { opacity: 1; }
-.iching-card .card-symbol { font-size: 3.8rem; margin-bottom: 18px; display: block; }
 .iching-card h3 { font-size: 1.25rem; color: var(--gold); margin-bottom: 14px; }
 .iching-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
 
@@ -227,7 +223,6 @@ img { max-width: 100%; }
   padding: 80px 24px; text-align: center; position: relative;
 }
 .quote-block { max-width: 800px; margin: 0 auto; }
-.quote-icon { font-size: 4rem; color: var(--gold); opacity: 0.25; display: block; margin-bottom: 24px; }
 .quote-text { font-size: 1.8rem; color: var(--text-primary); font-style: italic; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
 .quote-author { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
 
@@ -241,15 +236,13 @@ img { max-width: 100%; }
   transition: all var(--transition); position: relative; overflow: hidden;
 }
 .fengshui-card:hover { transform: translateY(-10px); border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
-.fengshui-card .card-icon { font-size: 3.2rem; margin-bottom: 18px; display: block; }
 .fengshui-card h3 { font-size: 1.2rem; color: var(--gold); margin-bottom: 14px; }
 .fengshui-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
 
 /* ---------- Five Elements ---------- */
 #elements { background: var(--bg-deep); }
 .elements-display { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 56px; }
-.element-circle {
-  width: 120px; height: 120px; border-radius: 50%;
+.element-circle { width: 90px; height: 90px; border-radius: 50%;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   font-weight: 700; font-size: 1.05rem;
   transition: all var(--transition); cursor: default;
