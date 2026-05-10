@@ -13,9 +13,9 @@
   --bg-card-hover: rgba(255, 252, 245, 0.95);
 
   /* 墨色文字 */
-  --text-primary: #1a1208;
-  --text-secondary: #3d3522;
-  --text-muted: #6b6050;
+  --text-primary: #2c2416;
+  --text-secondary: #5c5340;
+  --text-muted: #9c9284;
 
   /* 金色点缀 */
   --gold: #9b7b2c;
@@ -50,7 +50,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'PingFang SC', 'Microsoft YaHei', serif;
   background-color: var(--bg-primary);
-  background-image: url('../images/bg-landscape.png');
+  background-image: url('../images/bg-landscape.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
