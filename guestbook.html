@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1N8MHJD8CS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1N8MHJD8CS');
+</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guestbook — Leave a message, share your thoughts about I Ching, Feng Shui, and Chinese philosophy. We'd love to hear from you! 留言板">
+<meta name="keywords" content="guestbook, I Ching guestbook, 留言板, Chinese philosophy community">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ichingzhen.com/guestbook.html">
+<meta property="og:title" content="Guestbook · 留言板 — I Ching Wisdom">
+<meta property="og:description" content="Share your thoughts about I Ching, Feng Shui, and Chinese philosophy.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://ichingzhen.com/guestbook.html">
+<title>Guestbook · 留言板 — I Ching Wisdom · 易经智慧网</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/blog.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>☯</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6088657581972288" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="/" class="nav-logo"><span class="logo-icon">☯</span><span>I Ching Wisdom · 易经智慧网</span></a><button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="/">Home<span class="nav-zh">首页</span></a></li><li><a href="blog/">Articles<span class="nav-zh">文章</span></a></li><li><a href="blog/iching-original.html">I Ching Text<span class="nav-zh">易经原文</span></a></li><li><a href="about.html">About<span class="nav-zh">关于</span></a></li><li><a href="guestbook.html" class="active">Guestbook<span class="nav-zh">留言板</span></a></li><li><a href="contact.html">Contact<span class="nav-zh">联系</span></a></li></ul></div></nav>
+
+<main class="static-page"><div class="static-content">
+<h1>Guestbook · 留言板</h1>
+<p>Welcome to our guestbook! Share your thoughts, ask questions about I Ching, or just say hello. We read every message. 欢迎留言！分享你的想法、易经问题，或者打个招呼。每一条留言我们都会看。</p>
+
+<div class="guestbook-form-wrapper">
+  <form class="guestbook-form" id="guestbookForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gb-name">Name · 姓名 <span class="required">*</span></label>
+        <input type="text" id="gb-name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="gb-email">Email · 邮箱</label>
+        <input type="email" id="gb-email" placeholder="your@email.com (optional)">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gb-message">Message · 留言 <span class="required">*</span></label>
+      <textarea id="gb-message" rows="5" placeholder="Write your message here... 在这里写下你想说的话..." required></textarea>
+    </div>
+    <div class="form-submit-row">
+      <button type="submit" class="gb-submit-btn">Post Message · 提交留言</button>
+      <span class="form-hint">💬 Your message will be displayed publicly below</span>
+    </div>
+  </form>
+  <div class="form-success" id="formSuccess">
+    <span class="success-icon">✅</span>
+    <h3>Thank You! · 谢谢!</h3>
+    <p>Your message has been posted. We appreciate your contribution!</p>
+  </div>
+</div>
+
+<div class="ad-container ad-inline" style="margin:36px auto 48px;"><div class="ad-slot">Advertisement</div></div>
+
+<div class="guestbook-messages" id="guestbookMessages">
+  <h2>Recent Messages · 最新留言</h2>
+  <div class="gb-empty" id="gbEmpty">
+    <p>No messages yet. Be the first to leave a message! 还没有留言，来做第一个留言的人吧！</p>
+  </div>
+</div>
+</div></main>
+
+<footer class="footer"><div class="footer-content"><div class="footer-links"><a href="/">Home</a><a href="blog/">Blog</a><a href="about.html">About</a><a href="guestbook.html">Guestbook</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+<script>
+(function() {
+  var STORAGE_KEY = 'mc-guestbook';
+  var form = document.getElementById('guestbookForm');
+  var nameInput = document.getElementById('gb-name');
+  var emailInput = document.getElementById('gb-email');
+  var msgInput = document.getElementById('gb-message');
+  var msgContainer = document.getElementById('guestbookMessages');
+  var emptyEl = document.getElementById('gbEmpty');
+  var successEl = document.getElementById('formSuccess');
+
+  function loadMessages() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    } catch(e) { return []; }
+  }
+
+  function saveMessages(msgs) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
+    } catch(e) {}
+  }
+
+  function formatDate() {
+    var d = new Date();
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' +
+           String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderMessages() {
+    var msgs = loadMessages();
+    var existingCards = msgContainer.querySelectorAll('.gb-card');
+    existingCards.forEach(function(c) { c.remove(); });
+
+    if (msgs.length === 0) {
+      emptyEl.style.display = 'block';
+      return;
+    }
+
+    emptyEl.style.display = 'none';
+    msgs.slice().reverse().forEach(function(msg) {
+      var card = document.createElement('div');
+      card.className = 'gb-card';
+      var initial = msg.name ? msg.name.charAt(0).toUpperCase() : '?';
+      var hue = (msg.name || 'a').split('').reduce(function(a, c) { return a + c.charCodeAt(0); }, 0) % 360;
+      card.innerHTML =
+        '<div class="gb-avatar" style="background:hsl(' + hue + ',55%,60%)">' + escapeHtml(initial) + '</div>' +
+        '<div class="gb-body">' +
+          '<div class="gb-header-row">' +
+            '<span class="gb-author">' + escapeHtml(msg.name || 'Anonymous') + '</span>' +
+            '<span class="gb-date">' + escapeHtml(msg.date) + '</span>' +
+          '</div>' +
+          '<p class="gb-text">' + escapeHtml(msg.message) + '</p>' +
+        '</div>';
+      msgContainer.appendChild(card);
+    });
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = nameInput.value.trim();
+    var email = emailInput.value.trim();
+    var message = msgInput.value.trim();
+
+    if (!name || !message) return;
+
+    var msgs = loadMessages();
+    msgs.push({
+      name: name,
+      email: email,
+      message: message,
+      date: formatDate()
+    });
+    saveMessages(msgs);
+
+    form.reset();
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+
+    setTimeout(function() {
+      successEl.style.display = 'none';
+      form.style.display = 'block';
+    }, 3000);
+
+    renderMessages();
+  });
+
+  renderMessages();
+})();
+</script>
+</body></html>
