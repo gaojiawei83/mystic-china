@@ -300,6 +300,64 @@ img { max-width: 100%; }
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { background: var(--text-primary); color: #fff; border-color: var(--text-primary); }
 
+/* ---------- Daily Update Section ---------- */
+.daily-update-section {
+  padding: 56px 24px; max-width: 860px; margin: 0 auto;
+  background: transparent; position: relative;
+}
+.update-container { max-width: 780px; margin: 0 auto; }
+.update-header { text-align: center; margin-bottom: 36px; }
+.update-badge {
+  display: inline-block; padding: 6px 20px; border-radius: 20px;
+  background: var(--text-primary); color: #fff; font-size: 0.82rem;
+  font-weight: 600; letter-spacing: 1px;
+}
+.update-subtitle {
+  color: var(--text-secondary); font-size: 0.9rem; margin-top: 12px;
+}
+.update-timeline { position: relative; padding-left: 32px; }
+.update-timeline::before {
+  content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--text-primary) 0%, var(--glass-border) 100%);
+}
+.update-card { position: relative; margin-bottom: 32px; }
+.update-card:last-child { margin-bottom: 0; }
+.update-date {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+}
+.update-time { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--text-muted); margin-left: 12px; }
+.update-dot {
+  position: absolute; left: -29px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--text-primary); border: 2px solid #fff;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+.update-card.tomorrow .update-dot {
+  background: #fff; border: 2px solid var(--glass-border);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.04);
+}
+.update-content {
+  background: var(--glass-bg); backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+  padding: 22px 24px; transition: all var(--transition);
+}
+.update-card.today .update-content {
+  border-color: var(--border-glow); box-shadow: var(--shadow-glow);
+}
+.update-content h3 {
+  font-size: 1.05rem; color: var(--text-primary); margin-bottom: 8px;
+}
+.update-content p {
+  color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;
+}
+.update-link {
+  display: inline-block; margin-top: 12px; font-size: 0.85rem;
+  color: var(--text-primary); font-weight: 600;
+}
+.update-link:hover { opacity: 0.65; }
+.update-link.disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.5rem; letter-spacing: 1px; }
