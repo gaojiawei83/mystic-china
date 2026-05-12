@@ -13,13 +13,18 @@
 
 ```
 haiwaiyijing/
-├── index.html                 # 网站首页（含所有栏目）
+├── index.html                 # 网站首页（含所有栏目+每日更新+工具预览）
 ├── about.html                 # 关于我们
 ├── contact.html               # 联系我们
+├── guestbook.html             # 互动社区（Giscus 留言板）
+├── tools.html                 # 免费工具栏目
 ├── privacy-policy.html        # 隐私政策
 ├── robots.txt                 # SEO robots
 ├── sitemap.xml                # 网站地图
 ├── ads.txt                    # AdSense 验证
+├── LICENSE                    # MIT 许可证
+├── README.md                  # 项目说明
+├── TEMPLATE.md                # 新文章模板参考
 │
 ├── css/
 │   ├── style.css              # 主样式（导航、Hero、五行、引用、每日更新等）
@@ -98,6 +103,23 @@ haiwaiyijing/
 - Open Graph 标签用于社交媒体分享
 - 页面 canonical URL 用 `ichingzhen.com` 域名
 - 日期格式统一用 `Month DD, YYYY`（英文）
+
+## 导航结构
+
+全站统一6项导航：
+
+```
+☯ Logo    Blog    I Ching Text    Tools    Community    About
+           文章      易经原文         工具      互动社区      关于
+```
+
+- **Blog** → blog/index.html — 所有文章列表
+- **I Ching Text** → blog/iching-original.html — 易经原文系列
+- **Tools** → tools.html — 免费工具（即将上线）
+- **Community** → guestbook.html — Giscus 在线留言板
+- **About** → about.html — 关于我们
+- 首页 I Ching / Ba Gua / Feng Shui / Five Elements 栏目保留在页面内，不占导航位
+- Contact 在 Footer 中，不占主导航
 
 ## 新增文章流程
 
