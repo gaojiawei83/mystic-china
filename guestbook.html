@@ -26,144 +26,63 @@
 
 <main class="static-page"><div class="static-content">
 <h1>Guestbook · 留言板</h1>
-<p>Welcome to our guestbook! Share your thoughts, ask questions about I Ching, or just say hello. We read every message. 欢迎留言！分享你的想法、易经问题，或者打个招呼。每一条留言我们都会看。</p>
-
-<div class="guestbook-form-wrapper">
-  <form class="guestbook-form" id="guestbookForm">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="gb-name">Name · 姓名 <span class="required">*</span></label>
-        <input type="text" id="gb-name" placeholder="Your name" required>
-      </div>
-      <div class="form-group">
-        <label for="gb-email">Email · 邮箱</label>
-        <input type="email" id="gb-email" placeholder="your@email.com (optional)">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="gb-message">Message · 留言 <span class="required">*</span></label>
-      <textarea id="gb-message" rows="5" placeholder="Write your message here... 在这里写下你想说的话..." required></textarea>
-    </div>
-    <div class="form-submit-row">
-      <button type="submit" class="gb-submit-btn">Post Message · 提交留言</button>
-      <span class="form-hint">💬 Your message will be displayed publicly below</span>
-    </div>
-  </form>
-  <div class="form-success" id="formSuccess">
-    <span class="success-icon">✅</span>
-    <h3>Thank You! · 谢谢!</h3>
-    <p>Your message has been posted. We appreciate your contribution!</p>
-  </div>
-</div>
+<p>Welcome to our guestbook! Share your thoughts, ask questions, or just say hello. Your message will be visible to everyone and stored permanently. 欢迎留言！分享你的想法、提问或打个招呼。留言对所有人可见，永久保存。</p>
 
 <div class="ad-container ad-inline" style="margin:36px auto 48px;"><div class="ad-slot">Advertisement</div></div>
 
-<div class="guestbook-messages" id="guestbookMessages">
-  <h2>Recent Messages · 最新留言</h2>
-  <div class="gb-empty" id="gbEmpty">
-    <p>No messages yet. Be the first to leave a message! 还没有留言，来做第一个留言的人吧！</p>
+<div class="giscus-wrapper" id="giscusContainer">
+  <div class="giscus-loading">
+    <p>Loading comments... 加载留言中...</p>
   </div>
 </div>
 </div></main>
 
-<footer class="footer"><div class="footer-content"><div class="footer-links"><a href="/">Home</a><a href="blog/">Blog</a><a href="about.html">About</a><a href="guestbook.html">Guestbook</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
+<footer class="footer"><div class="footer-content"><div class="footer-links"><a href="/">Home</a><a href="blog/">Blog</a><a href="guestbook.html">Guestbook</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
 <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="js/main.js"></script>
+
 <script>
 (function() {
-  var STORAGE_KEY = 'mc-guestbook';
-  var form = document.getElementById('guestbookForm');
-  var nameInput = document.getElementById('gb-name');
-  var emailInput = document.getElementById('gb-email');
-  var msgInput = document.getElementById('gb-message');
-  var msgContainer = document.getElementById('guestbookMessages');
-  var emptyEl = document.getElementById('gbEmpty');
-  var successEl = document.getElementById('formSuccess');
-
-  function loadMessages() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    } catch(e) { return []; }
+  function loadGiscus() {
+    var script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'gaojiawei83/mystic-china');
+    script.setAttribute('data-repo-id', 'R_kgDO_PLACEHOLDER');
+    script.setAttribute('data-category', 'Guestbook');
+    script.setAttribute('data-category-id', 'DIC_kwDO_PLACEHOLDER');
+    script.setAttribute('data-mapping', 'pathname');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', 'light');
+    script.setAttribute('data-lang', 'en');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.async = true;
+    script.onload = function() {
+      var loading = document.querySelector('.giscus-loading');
+      if (loading) loading.style.display = 'none';
+    };
+    script.onerror = function() {
+      var container = document.getElementById('giscusContainer');
+      if (container) {
+        container.innerHTML = '<div class="giscus-setup-hint"><h3>⚠️ Giscus 尚未配置</h3>' +
+          '<p>站长请按以下步骤启用留言板：</p>' +
+          '<ol><li>打开仓库 <a href="https://github.com/gaojiawei83/mystic-china">gaojiawei83/mystic-china</a></li>' +
+          '<li>Settings → General → Features → ✅ <strong>Discussions</strong></li>' +
+          '<li>访问 <a href="https://giscus.app/">giscus.app</a> 输入仓库名获取配置</li>' +
+          '<li>安装 <a href="https://github.com/apps/giscus">Giscus GitHub App</a></li>' +
+          '</ol><p>完成后告诉模型更新 data-repo-id 和 data-category-id 即可。</p></div>';
+      }
+    };
+    document.getElementById('giscusContainer').appendChild(script);
   }
 
-  function saveMessages(msgs) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
-    } catch(e) {}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadGiscus);
+  } else {
+    loadGiscus();
   }
-
-  function formatDate() {
-    var d = new Date();
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' +
-           String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  function renderMessages() {
-    var msgs = loadMessages();
-    var existingCards = msgContainer.querySelectorAll('.gb-card');
-    existingCards.forEach(function(c) { c.remove(); });
-
-    if (msgs.length === 0) {
-      emptyEl.style.display = 'block';
-      return;
-    }
-
-    emptyEl.style.display = 'none';
-    msgs.slice().reverse().forEach(function(msg) {
-      var card = document.createElement('div');
-      card.className = 'gb-card';
-      var initial = msg.name ? msg.name.charAt(0).toUpperCase() : '?';
-      var hue = (msg.name || 'a').split('').reduce(function(a, c) { return a + c.charCodeAt(0); }, 0) % 360;
-      card.innerHTML =
-        '<div class="gb-avatar" style="background:hsl(' + hue + ',55%,60%)">' + escapeHtml(initial) + '</div>' +
-        '<div class="gb-body">' +
-          '<div class="gb-header-row">' +
-            '<span class="gb-author">' + escapeHtml(msg.name || 'Anonymous') + '</span>' +
-            '<span class="gb-date">' + escapeHtml(msg.date) + '</span>' +
-          '</div>' +
-          '<p class="gb-text">' + escapeHtml(msg.message) + '</p>' +
-        '</div>';
-      msgContainer.appendChild(card);
-    });
-  }
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var name = nameInput.value.trim();
-    var email = emailInput.value.trim();
-    var message = msgInput.value.trim();
-
-    if (!name || !message) return;
-
-    var msgs = loadMessages();
-    msgs.push({
-      name: name,
-      email: email,
-      message: message,
-      date: formatDate()
-    });
-    saveMessages(msgs);
-
-    form.reset();
-    form.style.display = 'none';
-    successEl.style.display = 'block';
-
-    setTimeout(function() {
-      successEl.style.display = 'none';
-      form.style.display = 'block';
-    }, 3000);
-
-    renderMessages();
-  });
-
-  renderMessages();
 })();
 </script>
 </body></html>
