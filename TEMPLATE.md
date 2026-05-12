@@ -35,7 +35,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6088657581972288" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><a href="../" class="nav-logo"><span class="logo-icon">☯</span><span>I Ching Wisdom · 易经智慧网</span></a><button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="../">Home<span class="nav-zh">首页</span></a></li><li><a href="../#iching">I Ching<span class="nav-zh">易经</span></a></li><li><a href="../#iching-text">I Ching Text<span class="nav-zh">易经原文</span></a></li><li><a href="../#fengshui">Feng Shui<span class="nav-zh">风水</span></a></li><li><a href="index.html">Articles</a></li></ul></div></nav>
+<nav class="navbar"><div class="nav-container"><a href="../" class="nav-logo"><span class="logo-icon">☯</span><span>I Ching Wisdom · 易经智慧网</span></a><button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button><ul class="nav-links"><li><a href="../">Home<span class="nav-zh">首页</span></a></li><li><a href="index.html">Blog<span class="nav-zh">文章</span></a></li><li><a href="iching-original.html">I Ching Text<span class="nav-zh">易经原文</span></a></li><li><a href="../tools.html">Tools<span class="nav-zh">工具</span></a></li><li><a href="../guestbook.html">Community<span class="nav-zh">互动社区</span></a></li><li><a href="../about.html">About<span class="nav-zh">关于</span></a></li></ul></div></nav>
 <main class="post-page"><article class="post-container">
 <nav class="breadcrumb"><a href="../">Home<span class="nav-zh">首页</span></a><span>›</span><a href="index.html">Articles</a><span>›</span>{{分类}}</nav>
 <header class="post-header"><span class="post-category">{{分类}}</span><h1>{{文章标题}}</h1><div class="post-meta"><span>{{日期，如 May 11, 2026}}</span><span>{{阅读时长}} min read</span></div></header>
@@ -83,7 +83,7 @@
 <a href="{{相关文章1}}.html" class="related-card"><h4>{{标题1}}</h4><p>{{简短描述1}}</p></a>
 <a href="{{相关文章2}}.html" class="related-card"><h4>{{标题2}}</h4><p>{{简短描述2}}</p></a>
 </div></section></main>
-<footer class="footer"><div class="footer-content"><div class="footer-links"><a href="../">Home<span class="nav-zh">首页</span></a><a href="index.html">Articles</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
+<footer class="footer"><div class="footer-content"><div class="footer-links"><a href="../">Home</a><a href="index.html">Blog</a><a href="iching-original.html">I Ching Text</a><a href="../tools.html">Tools</a><a href="../guestbook.html">Community</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
 <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="../js/main.js"></script>
 </body></html>
