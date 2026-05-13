@@ -44,8 +44,21 @@
   padding: 3px 0; font-size: 0.78rem; color: var(--text-secondary);
   letter-spacing: 1px; text-transform: uppercase;
 }
-.cat-tag .sep { color: var(--glass-border); margin: 0 10px; font-weight: 300; }
-.cat-tag em { font-style: normal; color: var(--text-muted); font-size: 0.72rem; text-transform: none; letter-spacing: 0; }
+.cat-tag [data-filter] {
+  cursor: pointer; transition: color 0.2s;
+  padding: 2px 0;
+}
+.cat-tag [data-filter]:hover { color: var(--text-primary); }
+.cat-tag [data-filter].active { color: var(--text-primary); font-weight: 600; }
+.cat-tag.cat-all { cursor: pointer; transition: color 0.2s; }
+.cat-tag.cat-all:hover { color: var(--text-primary); }
+.cat-tag.cat-all.active { color: var(--text-primary); font-weight: 600; }
+.cat-tag .sep { color: var(--glass-border); margin: 0 10px; font-weight: 300; pointer-events: none; }
+.cat-tag em { font-style: normal; color: var(--text-muted); font-size: 0.72rem; text-transform: none; letter-spacing: 0; pointer-events: none; }
+
+.blog-list article.filtered-out {
+  display: none;
+}
 
 .blog-list {
   max-width: 780px; margin: 0 auto; padding: 40px 24px 80px;

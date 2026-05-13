@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavOnScroll();
   initYearFooter();
   initTOC();
+  initCategoryFilter();
 });
 
 /* ---------- Mobile Navigation ---------- */
@@ -265,4 +266,46 @@ function initTOC() {
   }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
 
   headings.forEach(function(h) { observer.observe(h); });
+}
+
+/* ---------- Blog Category Filter ---------- */
+function initCategoryFilter() {
+  var filterBar = document.getElementById('category-filter');
+  if (!filterBar) return;
+
+  var articles = document.querySelectorAll('.blog-list article');
+  if (!articles.length) return;
+
+  var filterTags = filterBar.querySelectorAll('[data-filter]:not(.cat-all)');
+  var allTag = filterBar.querySelector('.cat-all');
+
+  filterTags.forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      var filter = this.getAttribute('data-filter');
+
+      filterTags.forEach(function(t) { t.classList.remove('active'); });
+      if (allTag) allTag.classList.remove('active');
+      this.classList.add('active');
+
+      articles.forEach(function(article) {
+        var category = article.querySelector('.list-category');
+        var catText = category ? category.textContent.trim() : '';
+        if (catText === filter) {
+          article.classList.remove('filtered-out');
+        } else {
+          article.classList.add('filtered-out');
+        }
+      });
+    });
+  });
+
+  if (allTag) {
+    allTag.addEventListener('click', function() {
+      this.classList.add('active');
+      filterTags.forEach(function(t) { t.classList.remove('active'); });
+      articles.forEach(function(article) {
+        article.classList.remove('filtered-out');
+      });
+    });
+  }
 }
