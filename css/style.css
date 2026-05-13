@@ -50,7 +50,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   background-color: var(--bg-deep);
-  background-image: url('../images/bg-landscape.png');
+  background-image: url('../images/bg-landscape.png?v=20260513');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
