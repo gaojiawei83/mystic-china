@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteRotator();
   initActiveNavOnScroll();
   initYearFooter();
+  initTOC();
 });
 
 /* ---------- Mobile Navigation ---------- */
@@ -181,4 +182,87 @@ function initQuoteRotator() {
 function initYearFooter() {
   const span = document.querySelector('.current-year');
   if (span) span.textContent = new Date().getFullYear();
+}
+
+/* ---------- Table of Contents ---------- */
+function initTOC() {
+  var content = document.querySelector('.post-content');
+  if (!content) return;
+
+  var headings = content.querySelectorAll('h2');
+  if (headings.length < 2) return;
+
+  var sidebar = document.createElement('div');
+  sidebar.className = 'toc-sidebar';
+
+  var toggle = document.createElement('button');
+  toggle.className = 'toc-toggle';
+  toggle.setAttribute('aria-label', 'Toggle table of contents');
+  toggle.innerHTML = '◀';
+  sidebar.appendChild(toggle);
+
+  var panel = document.createElement('div');
+  panel.className = 'toc-panel';
+
+  var title = document.createElement('div');
+  title.className = 'toc-title';
+  title.textContent = '目录';
+  panel.appendChild(title);
+
+  var list = document.createElement('ul');
+  list.className = 'toc-list';
+
+  headings.forEach(function(h, i) {
+    var id = 'toc-heading-' + i;
+    h.id = id;
+
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+
+  panel.appendChild(list);
+  sidebar.appendChild(panel);
+  document.body.appendChild(sidebar);
+
+  var tocLinks = list.querySelectorAll('a');
+  var isOpen = true;
+
+  toggle.addEventListener('click', function() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      sidebar.classList.remove('collapsed');
+      toggle.innerHTML = '◀';
+    } else {
+      sidebar.classList.add('collapsed');
+      toggle.innerHTML = '▶';
+    }
+  });
+
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById(link.getAttribute('href').substring(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+        var activeLink = list.querySelector('a[href="#' + entry.target.id + '"]');
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+  headings.forEach(function(h) { observer.observe(h); });
 }
