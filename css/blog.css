@@ -308,7 +308,229 @@
 .next-chapter-box a { color: var(--text-primary); font-weight: 600; }
 
 /* ---------- Waline Comments ---------- */
-#waline { margin-top: 32px; max-width: 780px; }
+#waline {
+  margin-top: 56px;
+  max-width: 780px;
+  padding: 36px 32px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+#waline .wl-header {
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+#waline .wl-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--text-primary);
+}
+#waline .wl-header label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+#waline .wl-header input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: border-color var(--transition);
+  outline: none;
+}
+#waline .wl-header input:focus {
+  border-color: var(--text-primary);
+}
+
+#waline .wl-editor {
+  margin-bottom: 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+#waline .wl-editor:focus-within {
+  border-color: var(--text-primary);
+}
+#waline .wl-editor .wl-edit {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  resize: vertical;
+  outline: none;
+  line-height: 1.7;
+}
+
+#waline .wl-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border);
+}
+
+#waline .wl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+#waline .wl-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+#waline .wl-comment {
+  padding: 0;
+}
+#waline .wl-card {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+#waline .wl-card:last-child {
+  border-bottom: none;
+}
+
+#waline .wl-card .wl-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+#waline .wl-card .wl-user .wl-nick {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+#waline .wl-card .wl-user .wl-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--text-primary);
+}
+
+#waline .wl-card .wl-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+#waline .wl-card .wl-content {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+#waline .wl-card .wl-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+}
+#waline .wl-card .wl-actions button {
+  background: none;
+  border: none;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+#waline .wl-card .wl-actions button:hover {
+  color: var(--text-primary);
+}
+
+#waline .wl-card .wl-reply {
+  margin-top: 14px;
+  margin-left: 20px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+#waline .wl-empty {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+#waline .wl-count {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+#waline .wl-sort {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+#waline .wl-sort button {
+  background: none;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+#waline .wl-sort button.active,
+#waline .wl-sort button:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+#waline .wl-emoji-popup {
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+#waline a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .waline-wrapper { margin-top: 24px; min-height: 200px; }
 
 /* ---------- Tools Page ---------- */
