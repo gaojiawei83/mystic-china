@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -103,4 +103,14 @@
 <footer class="footer"><div class="footer-content"><div class="footer-links"><a href="../">Home</a><a href="index.html">Blog</a><a href="iching-original.html">I Ching Text</a><a href="../tools.html">Tools</a><a href="../guestbook.html">Community</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom.</p></div></footer>
 <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="../js/main.js"></script>
+<!-- Waline 评论系统 -->
+<link href="https://unpkg.com/waline@latest/dist/waline.css" rel="stylesheet">
+<div id="waline"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/waline@latest/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://mystic-china.vercel.app',
+  });
+</script>
 </body></html>

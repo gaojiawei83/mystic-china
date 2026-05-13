@@ -214,4 +214,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="../js/main.js"></script>
+<!-- Waline 评论系统 -->
+<link href="https://unpkg.com/waline@latest/dist/waline.css" rel="stylesheet">
+<div id="waline"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/waline@latest/dist/waline.js';
+  init({
+    el: '#waline',
+    serverURL: 'https://mystic-china.vercel.app',
+  });
+</script>
 </body></html>
