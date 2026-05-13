@@ -307,22 +307,9 @@
 }
 .next-chapter-box a { color: var(--text-primary); font-weight: 600; }
 
-/* ---------- Guestbook (Giscus) ---------- */
-.giscus-wrapper { margin-top: 24px; min-height: 200px; }
-.giscus-loading {
-  text-align: center; padding: 48px 24px;
-  color: var(--text-muted); font-size: 0.95rem;
-}
-.giscus-setup-hint {
-  text-align: left; padding: 32px;
-  background: rgba(0,0,0,0.02); border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-}
-.giscus-setup-hint h3 { font-size: 1.1rem; color: #c96; margin-bottom: 12px; }
-.giscus-setup-hint p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
-.giscus-setup-hint ol { padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
-.giscus-setup-hint ol li { margin-bottom: 6px; }
-.giscus-setup-hint a { color: var(--text-primary); text-decoration: underline; }
+/* ---------- Waline Comments ---------- */
+#waline { margin-top: 32px; max-width: 780px; }
+.waline-wrapper { margin-top: 24px; min-height: 200px; }
 
 /* ---------- Tools Page ---------- */
 .tools-grid {

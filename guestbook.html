@@ -30,11 +30,7 @@
 
 <div class="ad-container ad-inline" style="margin:36px auto 48px;"><div class="ad-slot">Advertisement</div></div>
 
-<div class="giscus-wrapper" id="giscusContainer">
-  <div class="giscus-loading">
-    <p>Loading comments... 加载留言中...</p>
-  </div>
-</div>
+<div id="waline"></div>
 </div></main>
 
 <footer class="footer"><div class="footer-content"><div class="footer-links"><a href="/">Home</a><a href="blog/">Blog</a><a href="blog/iching-original.html">I Ching Text</a><a href="tools.html">Tools</a><a href="guestbook.html">Community</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div><p class="footer-copy">&copy; <span class="current-year">2026</span> I Ching Wisdom · 易经智慧网 — 100% Free Forever.</p></div></footer>
@@ -43,45 +39,27 @@
 
 <script>
 (function() {
-  function loadGiscus() {
+  function loadWaline() {
+    var link = document.createElement('link');
+    link.href = 'https://unpkg.com/waline@latest/dist/waline.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
     var script = document.createElement('script');
-    script.src = 'https://giscus.app/client.js';
-    script.setAttribute('data-repo', 'gaojiawei83/mystic-china');
-    script.setAttribute('data-repo-id', 'R_kgDOSZUPnA');
-    script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'DIC_kwDOSZUPnM4C83VZ');
-    script.setAttribute('data-mapping', 'pathname');
-    script.setAttribute('data-strict', '0');
-    script.setAttribute('data-reactions-enabled', '1');
-    script.setAttribute('data-emit-metadata', '0');
-    script.setAttribute('data-input-position', 'bottom');
-    script.setAttribute('data-theme', 'preferred_color_scheme');
-    script.setAttribute('data-lang', 'en');
-    script.setAttribute('crossorigin', 'anonymous');
-    script.async = true;
+    script.src = 'https://unpkg.com/waline@latest/dist/waline.js';
     script.onload = function() {
-      var loading = document.querySelector('.giscus-loading');
-      if (loading) loading.style.display = 'none';
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://mystic-china.vercel.app',
+      });
     };
-    script.onerror = function() {
-      var container = document.getElementById('giscusContainer');
-      if (container) {
-        container.innerHTML = '<div class="giscus-setup-hint"><h3>⚠️ Giscus 尚未配置</h3>' +
-          '<p>站长请按以下步骤启用留言板：</p>' +
-          '<ol><li>打开仓库 <a href="https://github.com/gaojiawei83/mystic-china">gaojiawei83/mystic-china</a></li>' +
-          '<li>Settings → General → Features → ✅ <strong>Discussions</strong></li>' +
-          '<li>访问 <a href="https://giscus.app/">giscus.app</a> 输入仓库名获取配置</li>' +
-          '<li>安装 <a href="https://github.com/apps/giscus">Giscus GitHub App</a></li>' +
-          '</ol><p>完成后告诉模型更新 data-repo-id 和 data-category-id 即可。</p></div>';
-      }
-    };
-    document.getElementById('giscusContainer').appendChild(script);
+    document.body.appendChild(script);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadGiscus);
+    document.addEventListener('DOMContentLoaded', loadWaline);
   } else {
-    loadGiscus();
+    loadWaline();
   }
 })();
 </script>
