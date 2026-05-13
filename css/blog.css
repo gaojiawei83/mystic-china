@@ -533,6 +533,11 @@
 
 .waline-wrapper { margin-top: 24px; min-height: 200px; }
 
+#waline .wl-power { display: none; }
+#waline .wl-login-button { display: none; }
+#waline .wl-footer-item { display: none; }
+#waline .wl-rss { display: none; }
+
 /* ---------- Tools Page ---------- */
 .tools-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
