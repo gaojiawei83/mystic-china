@@ -534,9 +534,10 @@
 .waline-wrapper { margin-top: 24px; min-height: 200px; }
 
 #waline .wl-power { display: none; }
-#waline .wl-login-button { display: none; }
 #waline .wl-footer-item { display: none; }
 #waline .wl-rss { display: none; }
+#waline .wl-header { display: none; }
+#waline .wl-actions { display: none; }
 
 /* ---------- Tools Page ---------- */
 .tools-grid {
