@@ -599,6 +599,16 @@
   background: rgba(0,0,0,0.04); color: var(--text-muted);
   font-size: 0.75rem; letter-spacing: 1px; font-weight: 600;
 }
+.tool-card-link {
+  text-decoration: none; color: inherit; display: block;
+  cursor: pointer;
+}
+.tool-card-link:hover {
+  border-color: var(--border-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+}
+.tool-status.available {
+  background: rgba(34,197,94,0.12); color: #16a34a;
+}
 
 /* ---------- Table of Contents Sidebar ---------- */
 .toc-sidebar {

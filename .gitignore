@@ -15,3 +15,6 @@ node_modules/
 # Environment files
 .env
 .env.local
+
+# Source repos (not needed for deployment)
+wooden-fish-master/
