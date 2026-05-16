@@ -18,3 +18,9 @@ node_modules/
 
 # Source repos (not needed for deployment)
 wooden-fish-master/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
